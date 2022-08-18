@@ -21,3 +21,9 @@ struct Employees: Codable {
     let phone_number: String
     let skills: [String]
 }
+
+struct SortedNames {
+    static var shared = SortedNames()
+
+    var sortedArrayOfNames: [String] = []
+}

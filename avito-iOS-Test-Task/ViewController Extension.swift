@@ -21,16 +21,15 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let text = ""
-//        let text = result?.data[indexPath.section].items[indexPath.row]
-//        let text = result?.company.employees[indexPath.section].name[index]
+//        let text = result?.company.employees[indexPath.row].name
+//        let text = SortedNames.shared.sortedArrayOfNames[indexPath.row]
+        let text = sortedArray[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = text
         return cell
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return ""
-        return result?.company.employees[section].name
+        return result?.company.name
     }
 }
