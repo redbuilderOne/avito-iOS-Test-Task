@@ -7,18 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF233A3228AE909C00E43B28 /* EmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF233A3128AE909C00E43B28 /* EmployeeViewController.swift */; };
+		FF5CE07128B3FCA200EC88AF /* DataAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5CE07028B3FCA200EC88AF /* DataAlert.swift */; };
+		FF5CE07328B3FD7B00EC88AF /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5CE07228B3FD7B00EC88AF /* URLs.swift */; };
 		FF9C268B28AD31290057B39D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C268A28AD31290057B39D /* AppDelegate.swift */; };
 		FF9C268D28AD31290057B39D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C268C28AD31290057B39D /* SceneDelegate.swift */; };
 		FF9C268F28AD31290057B39D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C268E28AD31290057B39D /* ViewController.swift */; };
 		FF9C269228AD31290057B39D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF9C269028AD31290057B39D /* Main.storyboard */; };
 		FF9C269428AD31290057B39D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF9C269328AD31290057B39D /* Assets.xcassets */; };
 		FF9C269728AD31290057B39D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF9C269528AD31290057B39D /* LaunchScreen.storyboard */; };
-		FF9C26A328AD37590057B39D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C26A228AD37590057B39D /* Data.swift */; };
 		FF9C26A528AD37640057B39D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C26A428AD37640057B39D /* Result.swift */; };
 		FF9C26A928AD37C00057B39D /* ViewController Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C26A828AD37C00057B39D /* ViewController Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF233A3128AE909C00E43B28 /* EmployeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewController.swift; sourceTree = "<group>"; };
+		FF5CE07028B3FCA200EC88AF /* DataAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAlert.swift; sourceTree = "<group>"; };
+		FF5CE07228B3FD7B00EC88AF /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		FF9C268728AD31290057B39D /* avito-iOS-Test-Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "avito-iOS-Test-Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF9C268A28AD31290057B39D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF9C268C28AD31290057B39D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -27,7 +32,6 @@
 		FF9C269328AD31290057B39D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF9C269628AD31290057B39D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF9C269828AD31290057B39D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FF9C26A228AD37590057B39D /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		FF9C26A428AD37640057B39D /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		FF9C26A828AD37C00057B39D /* ViewController Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,6 +47,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF233A2F28AE8E8F00E43B28 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF9C26A428AD37640057B39D /* Result.swift */,
+				FF5CE07228B3FD7B00EC88AF /* URLs.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FF233A3028AE8E9E00E43B28 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FF9C268E28AD31290057B39D /* ViewController.swift */,
+				FF9C26A828AD37C00057B39D /* ViewController Extension.swift */,
+				FF233A3128AE909C00E43B28 /* EmployeeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		FF9C267E28AD31290057B39D = {
 			isa = PBXGroup;
 			children = (
@@ -64,10 +87,9 @@
 			children = (
 				FF9C268A28AD31290057B39D /* AppDelegate.swift */,
 				FF9C268C28AD31290057B39D /* SceneDelegate.swift */,
-				FF9C268E28AD31290057B39D /* ViewController.swift */,
-				FF9C26A828AD37C00057B39D /* ViewController Extension.swift */,
-				FF9C26A228AD37590057B39D /* Data.swift */,
-				FF9C26A428AD37640057B39D /* Result.swift */,
+				FF5CE07028B3FCA200EC88AF /* DataAlert.swift */,
+				FF233A2F28AE8E8F00E43B28 /* Model */,
+				FF233A3028AE8E9E00E43B28 /* Controller */,
 				FF9C269028AD31290057B39D /* Main.storyboard */,
 				FF9C269328AD31290057B39D /* Assets.xcassets */,
 				FF9C269528AD31290057B39D /* LaunchScreen.storyboard */,
@@ -148,11 +170,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF9C268F28AD31290057B39D /* ViewController.swift in Sources */,
+				FF5CE07328B3FD7B00EC88AF /* URLs.swift in Sources */,
 				FF9C26A928AD37C00057B39D /* ViewController Extension.swift in Sources */,
 				FF9C26A528AD37640057B39D /* Result.swift in Sources */,
 				FF9C268B28AD31290057B39D /* AppDelegate.swift in Sources */,
+				FF5CE07128B3FCA200EC88AF /* DataAlert.swift in Sources */,
+				FF233A3228AE909C00E43B28 /* EmployeeViewController.swift in Sources */,
 				FF9C268D28AD31290057B39D /* SceneDelegate.swift in Sources */,
-				FF9C26A328AD37590057B39D /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
