@@ -36,7 +36,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Ouj-0M-7Sy"/>
                     <connections>
-                        <segue destination="nWE-6u-nQw" kind="show" id="tah-G4-glB"/>
+                        <segue destination="nWE-6u-nQw" kind="show" identifier="showDetails" id="tah-G4-glB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

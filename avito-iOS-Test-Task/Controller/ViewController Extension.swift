@@ -22,7 +22,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let text = result?.company.employees[indexPath.row].name
-        let text = sortedArray[indexPath.row]
+        let text = sortedEmployees[indexPath.row].name
+//        let text = SortedNames.shared.sortedArrayOfNames[indexPath.row]
 //        let text = ""
 //        let text = sortedArray[indexPath.row]
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)

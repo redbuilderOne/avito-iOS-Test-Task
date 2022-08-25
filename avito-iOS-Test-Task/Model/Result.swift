@@ -17,13 +17,15 @@ struct Company: Codable {
 }
 
 struct Employees: Codable {
-    let name: String
-    let phone_number: String
-    let skills: [String]
+    var name: String
+    var phone_number: String
+    var skills: [String]
 }
 
 struct SortedNames {
     static var shared = SortedNames()
 
     var sortedArrayOfNames: [String] = []
+    var phoneNumberArray: [String] = []
+    var skillsArray: [[String]] = []
 }

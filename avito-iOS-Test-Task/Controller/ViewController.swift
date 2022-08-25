@@ -15,16 +15,14 @@ protocol FetchDataViaJson: AnyObject {
 class ViewController: UIViewController, FetchDataViaJson  {
 
     var result: Result?
-    var sortedArray: [String] = []
-//    var resultArray: [Result]?
     var dataAlert: DataAlert?
+    var sortedEmployees: [Employees] = []
+    
     lazy var triesCounter: Int = 0
 
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-//        tableView.rowHeight = 40
-//        tableView.estimatedRowHeight = 80
         return tableView
     }()
 
@@ -45,15 +43,24 @@ class ViewController: UIViewController, FetchDataViaJson  {
             print("Попытка №: \(triesCounter)")
             let jsonData = try Data(contentsOf: url)
             result = try JSONDecoder().decode(Result.self, from: jsonData)
-//            resultArray = try JSONDecoder().decode([Result].self, from: jsonData)
+
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                print("tableView reloaded")
+            }
+
 
             if let result = result {
+                sortedEmployees = result.company.employees.sorted { $0.name < $1.name }
+
                 for i in result.company.employees {
                     SortedNames.shared.sortedArrayOfNames.append(i.name)
+                    SortedNames.shared.phoneNumberArray.append(i.phone_number)
+                    SortedNames.shared.skillsArray.append(i.skills)
                 }
 
-                sortedArray = SortedNames.shared.sortedArrayOfNames.sorted(by: <)
-                
+                SortedNames.shared.sortedArrayOfNames = SortedNames.shared.sortedArrayOfNames.sorted(by: <)
+
             } else {
                 print("failed to parse result")
             }
@@ -77,16 +84,17 @@ class ViewController: UIViewController, FetchDataViaJson  {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? EmployeeViewController {
-//            destination.employees = result?.company.employees[tableView.indexPathForSelectedRow?.row ?? 0]
-//            destination.result = resultArray[tableView.indexPathForSelectedRow?.row]
+//            destination.sortedEmployees = result?.company.employees[tableView.indexPathForSelectedRow!.row]
+
+            destination.sortedEmployees = sortedEmployees[tableView.indexPathForSelectedRow!.row]
         }
 
 
-//        guard
-//            segue.identifier == "showSecond",
-//            let destination = segue.destination as? ErrorViewController
-//        else { return }
-//
-//        destination.errorText = "Переданный текст"
+        //        guard
+        //            segue.identifier == "showSecond",
+        //            let destination = segue.destination as? ErrorViewController
+        //        else { return }
+        //
+        //        destination.errorText = "Переданный текст"
     }
 }
