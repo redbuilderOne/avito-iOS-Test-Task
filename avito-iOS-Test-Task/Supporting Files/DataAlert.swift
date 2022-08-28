@@ -8,34 +8,28 @@
 import UIKit
 
 struct DataAlert {
-    
-    weak var delegate: FetchDataViaJson?
+    weak var delegate: URLSessionProtocol?
 
-    func parseJSONAgain() {
-        delegate?.parseJSON(URLs.shared.stringUrl)
+    private func parseJSONAgain() {
+        delegate?.parseJSON(URLs.shared.stringURL)
     }
 
     func fetchFailureAlert(on viewController: UIViewController, with title: String, message: String) {
         let fetchFailureAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-
         fetchFailureAlert.addAction(UIAlertAction(title: "Нет", style: .destructive, handler: { noAction in
-            print("No Action")
+            print("No action")
         }))
-
         fetchFailureAlert.addAction(UIAlertAction(title: "Да", style: .default, handler: { action in
             parseJSONAgain()
         }))
-
         viewController.present(fetchFailureAlert, animated: true)
     }
 
     func showErrorAlert(on viewController: UIViewController, with title: String, message: String) {
         let showErrorAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-
         showErrorAlert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { action in
             parseJSONAgain()
         }))
-
         viewController.present(showErrorAlert, animated: true)
     }
 }

@@ -22,10 +22,7 @@ struct Employees: Codable {
     var skills: [String]
 }
 
-struct SortedNames {
-    static var shared = SortedNames()
-
-    var sortedArrayOfNames: [String] = []
-    var phoneNumberArray: [String] = []
-    var skillsArray: [[String]] = []
+struct SortedResult {
+    static var shared = SortedResult()
+    var sortedEmployees: [Employees] = []
 }

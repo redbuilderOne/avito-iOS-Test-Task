@@ -7,17 +7,14 @@
 
 import UIKit
 
-protocol FetchDataViaJson: AnyObject {
+protocol URLSessionProtocol: AnyObject {
     var triesCounter: Int { get set }
     func parseJSON(_ url: String)
 }
 
-class ViewController: UIViewController, FetchDataViaJson  {
-
+class ViewController: UIViewController, URLSessionProtocol  {
     var result: Result?
-    var dataAlert: DataAlert?
-    var sortedEmployees: [Employees] = []
-    
+    private var dataAlert: DataAlert?
     lazy var triesCounter: Int = 0
 
     private let tableView: UITableView = {
@@ -29,15 +26,15 @@ class ViewController: UIViewController, FetchDataViaJson  {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
-        parseJSON(URLs.shared.stringUrl)
+        parseJSON(URLs.shared.stringURL)
         tableView.frame = view.bounds
         tableView.delegate = self
         tableView.dataSource = self
     }
 
     func parseJSON(_ url: String) {
-        guard let url = URL(string: URLs.shared.stringUrl) else { return }
-        
+        guard let url = URL(string: URLs.shared.stringURL) else { return }
+
         do {
             triesCounter += 1
             print("Попытка №: \(triesCounter)")
@@ -46,29 +43,18 @@ class ViewController: UIViewController, FetchDataViaJson  {
 
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-                print("tableView reloaded")
             }
-
-
+            
             if let result = result {
-                sortedEmployees = result.company.employees.sorted { $0.name < $1.name }
-
-                for i in result.company.employees {
-                    SortedNames.shared.sortedArrayOfNames.append(i.name)
-                    SortedNames.shared.phoneNumberArray.append(i.phone_number)
-                    SortedNames.shared.skillsArray.append(i.skills)
-                }
-
-                SortedNames.shared.sortedArrayOfNames = SortedNames.shared.sortedArrayOfNames.sorted(by: <)
-
+                SortedResult.shared.sortedEmployees = result.company.employees.sorted { $0.name < $1.name }
             } else {
-                print("failed to parse result")
+                print("Failed to parse the result. Reason: \(String(describing: result))")
             }
 
         } catch {
             dataAlert = DataAlert()
             dataAlert?.delegate = self
-
+            
             if triesCounter < 3 {
                 dataAlert?.fetchFailureAlert(on: self, with: "Не удалось загрузить данные", message: "Попробовать еще раз?")
             }
@@ -78,23 +64,13 @@ class ViewController: UIViewController, FetchDataViaJson  {
                 dataAlert?.showErrorAlert(on: self, with: "Не удается загрузить данные...", message: "Причина: \n\(error)")
             }
 
-            print("SOME ERROR OCCURED - \(error)")
+            print("ERROR OCCURED - \(error)")
         }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? EmployeeViewController {
-//            destination.sortedEmployees = result?.company.employees[tableView.indexPathForSelectedRow!.row]
-
-            destination.sortedEmployees = sortedEmployees[tableView.indexPathForSelectedRow!.row]
+            destination.sortedEmployees = SortedResult.shared.sortedEmployees[tableView.indexPathForSelectedRow!.row]
         }
-
-
-        //        guard
-        //            segue.identifier == "showSecond",
-        //            let destination = segue.destination as? ErrorViewController
-        //        else { return }
-        //
-        //        destination.errorText = "Переданный текст"
     }
 }
