@@ -26,14 +26,14 @@ class ViewController: UIViewController, URLSessionProtocol  {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
-        parseJSON(URLs.shared.stringURL)
+        parseJSON(URLStrings.avitoURL.rawValue)
         tableView.frame = view.bounds
         tableView.delegate = self
         tableView.dataSource = self
     }
 
     func parseJSON(_ url: String) {
-        guard let url = URL(string: URLs.shared.stringURL) else { return }
+        guard let url = URL(string: URLStrings.avitoURL.rawValue) else { return }
 
         do {
             triesCounter += 1

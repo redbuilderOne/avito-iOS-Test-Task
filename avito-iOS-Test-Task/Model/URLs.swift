@@ -7,12 +7,6 @@
 
 import Foundation
 
-//enum URLStrings: String {
-//    case avitoURL = "https://run.mocky.io/v3/1d1cb4ec-73db-4762-8c4b-0b8aa3cecd4c"
-//}
-
-struct URLs {
-    static var shared = URLs()
-    
-    let stringURL = "https://run.mocky.io/v3/1d1cb4ec-73db-4762-8c4b-0b8aa3cecd4c"
+enum URLStrings: String {
+    case avitoURL = "https://run.mocky.io/v3/1d1cb4ec-73db-4762-8c4b-0b8aa3cecd4c"
 }
