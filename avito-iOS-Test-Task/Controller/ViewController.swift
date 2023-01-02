@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 protocol URLSessionProtocol: AnyObject {
     var triesCounter: Int { get set }
@@ -13,9 +14,13 @@ protocol URLSessionProtocol: AnyObject {
 }
 
 class ViewController: UIViewController, URLSessionProtocol  {
+
     var result: Result?
     private var dataAlert: DataAlert?
     lazy var triesCounter: Int = 0
+
+    var observers: [AnyCancellable] = []
+    private var combineResult: [Result] = []
 
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -30,6 +35,25 @@ class ViewController: UIViewController, URLSessionProtocol  {
         tableView.frame = view.bounds
         tableView.delegate = self
         tableView.dataSource = self
+
+        fetchData()
+    }
+
+    private func fetchData() {
+        DataFetcher.shared.fetchData()
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .failure(let error):
+                    print(error)
+                case .finished:
+                    print("fetchData success")
+                }
+            } receiveValue: { [weak self] result in
+                self?.combineResult = result
+                print("result = \(result)")
+            }
+            .store(in: &observers)
     }
 
     func parseJSON(_ url: String) {
