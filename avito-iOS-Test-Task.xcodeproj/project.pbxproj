@@ -10,7 +10,6 @@
 		FF233A3228AE909C00E43B28 /* EmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF233A3128AE909C00E43B28 /* EmployeeViewController.swift */; };
 		FF5C00AF28C7635E00815A33 /* avito_iOS_Test_TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5C00AE28C7635E00815A33 /* avito_iOS_Test_TaskTests.swift */; };
 		FF5CE07128B3FCA200EC88AF /* DataAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5CE07028B3FCA200EC88AF /* DataAlert.swift */; };
-		FF5CE07328B3FD7B00EC88AF /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5CE07228B3FD7B00EC88AF /* URLs.swift */; };
 		FF9C268B28AD31290057B39D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C268A28AD31290057B39D /* AppDelegate.swift */; };
 		FF9C268D28AD31290057B39D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C268C28AD31290057B39D /* SceneDelegate.swift */; };
 		FF9C268F28AD31290057B39D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C268E28AD31290057B39D /* ViewController.swift */; };
@@ -18,7 +17,7 @@
 		FF9C269428AD31290057B39D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF9C269328AD31290057B39D /* Assets.xcassets */; };
 		FF9C269728AD31290057B39D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF9C269528AD31290057B39D /* LaunchScreen.storyboard */; };
 		FF9C26A528AD37640057B39D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C26A428AD37640057B39D /* Result.swift */; };
-		FF9C26A928AD37C00057B39D /* ViewController Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C26A828AD37C00057B39D /* ViewController Extension.swift */; };
+		FFE425CA2963127D00ACBDA4 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE425C92963127D00ACBDA4 /* DataFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +35,6 @@
 		FF5C00AC28C7635E00815A33 /* avito-iOS-Test-TaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "avito-iOS-Test-TaskTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF5C00AE28C7635E00815A33 /* avito_iOS_Test_TaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = avito_iOS_Test_TaskTests.swift; sourceTree = "<group>"; };
 		FF5CE07028B3FCA200EC88AF /* DataAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAlert.swift; sourceTree = "<group>"; };
-		FF5CE07228B3FD7B00EC88AF /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		FF9C268728AD31290057B39D /* avito-iOS-Test-Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "avito-iOS-Test-Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF9C268A28AD31290057B39D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF9C268C28AD31290057B39D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +44,7 @@
 		FF9C269628AD31290057B39D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF9C269828AD31290057B39D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF9C26A428AD37640057B39D /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		FF9C26A828AD37C00057B39D /* ViewController Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController Extension.swift"; sourceTree = "<group>"; };
+		FFE425C92963127D00ACBDA4 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				FF9C26A428AD37640057B39D /* Result.swift */,
-				FF5CE07228B3FD7B00EC88AF /* URLs.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -80,7 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				FF9C268E28AD31290057B39D /* ViewController.swift */,
-				FF9C26A828AD37C00057B39D /* ViewController Extension.swift */,
 				FF233A3128AE909C00E43B28 /* EmployeeViewController.swift */,
 			);
 			path = Controller;
@@ -132,6 +128,7 @@
 				FF9C269328AD31290057B39D /* Assets.xcassets */,
 				FF9C269528AD31290057B39D /* LaunchScreen.storyboard */,
 				FF9C269828AD31290057B39D /* Info.plist */,
+				FFE425C92963127D00ACBDA4 /* DataFetcher.swift */,
 			);
 			path = "avito-iOS-Test-Task";
 			sourceTree = "<group>";
@@ -246,13 +243,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF9C268F28AD31290057B39D /* ViewController.swift in Sources */,
-				FF5CE07328B3FD7B00EC88AF /* URLs.swift in Sources */,
-				FF9C26A928AD37C00057B39D /* ViewController Extension.swift in Sources */,
 				FF9C26A528AD37640057B39D /* Result.swift in Sources */,
 				FF9C268B28AD31290057B39D /* AppDelegate.swift in Sources */,
 				FF5CE07128B3FCA200EC88AF /* DataAlert.swift in Sources */,
 				FF233A3228AE909C00E43B28 /* EmployeeViewController.swift in Sources */,
 				FF9C268D28AD31290057B39D /* SceneDelegate.swift in Sources */,
+				FFE425CA2963127D00ACBDA4 /* DataFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

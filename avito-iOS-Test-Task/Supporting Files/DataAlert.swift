@@ -11,7 +11,7 @@ struct DataAlert {
     weak var delegate: URLSessionProtocol?
 
     private func parseJSONAgain() {
-        delegate?.parseJSON(URLStrings.avitoURL.rawValue)
+        delegate?.parseJSON(URLEnum.avitoURL.rawValue)
     }
 
     func fetchFailureAlert(on viewController: UIViewController, with title: String, message: String) {

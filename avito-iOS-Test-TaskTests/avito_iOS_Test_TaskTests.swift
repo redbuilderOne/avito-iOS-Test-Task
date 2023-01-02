@@ -20,7 +20,7 @@ class avito_iOS_Test_TaskTests: XCTestCase {
     }
 
     func testURLNoNil() {
-        let url = URLStrings.avitoURL.rawValue
+        let url = URLEnum.avitoURL.rawValue
         XCTAssertNotNil(url, "not nil")
     }
 
@@ -30,7 +30,7 @@ class avito_iOS_Test_TaskTests: XCTestCase {
         var parseResult: Bool
 
         // when
-        parseResult = ((viewController?.parseJSON(URLStrings.avitoURL.rawValue)) != nil)
+        parseResult = ((viewController?.parseJSON(URLEnum.avitoURL.rawValue)) != nil)
 
         // then
         XCTAssertEqual(expectedResult, parseResult)
