@@ -50,11 +50,10 @@ class ViewController: UIViewController, URLSessionProtocol  {
             } else {
                 print("Failed to parse the result. Reason: \(String(describing: result))")
             }
-
         } catch {
             dataAlert = DataAlert()
             dataAlert?.delegate = self
-            
+
             if triesCounter < 3 {
                 dataAlert?.fetchFailureAlert(on: self, with: "Не удалось загрузить данные", message: "Попробовать еще раз?")
             }
